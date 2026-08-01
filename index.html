@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-1"></div>
+    <div class="background-glow glow-2"></div>
+    <main class="dashboard">
+        <header class="dashboard-header">
+
+            <h1>CHRONOS</h1>
+
+            <button id="themeToggle">
+                🌙
+            </button>
+
+        </header>
+        <section class="card clock-card">
+            <div class="analog-clock">
+                <div class="outer-ring"></div>
+                <div class="numbers"></div>
+                <div class="ticks"></div>
+                <div id="hour" class="hand hour">
+                    <span></span>
+                </div>
+                <div id="minute" class="hand minute">
+                    <span></span>
+                </div>
+                <div id="second" class="hand second">
+                    <span></span>
+                    <div class="counter-weight"></div>
+                </div>
+                <div class="center-dot"></div>
+            </div>
+            <div class="digital-clock">        
+                <span class="clock-label">
+                    LOCAL TIME
+                </span>         
+                <h2 id="digitalTime">
+                    00:00:00
+                </h2>            
+                <p id="currentDate">
+                    Loading...
+                </p>            
+            </div>
+        </section>
+        <section class="info-grid">
+            <div class="card">
+                <h3>🌤 Weather</h3>
+                <p>Coming Soon</p>
+            </div>
+            <div class="card">
+                <h3>🌍 World Clock</h3>
+                <p>Coming Soon</p>
+            </div>
+            <div class="card">
+                <h3>⏱ Stopwatch</h3>
+                <p>Coming Soon</p>
+            </div>
+            <div class="card">
+                <h3>🔔 Alarm</h3>
+                <p>Coming Soon</p>
+            </div>
+        </section>
+    </main>
+    <script src="js/clock.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

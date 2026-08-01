@@ -67,10 +67,29 @@
                 <h3>🌍 World Clock</h3>
                 <p>Coming Soon</p>
             </div>
-            <div class="card">
-                <h3>⏱ Stopwatch</h3>
-                <p>Coming Soon</p>
-            </div>
+            <section class="card stopwatch-card">
+                <div class="card-header">
+                    <h3>⏱ Stopwatch</h3>
+                    <span class="status-badge" id="stopwatchStatus">
+                        Ready
+                    </span>
+                </div>
+                <div class="stopwatch-display" id="stopwatchDisplay">
+                    00:00:00.000
+                </div>
+                <div class="stopwatch-buttons">
+                    <button id="startStopwatch" class="primary-btn">
+                        Start
+                    </button>
+                    <button id="lapStopwatch" class="secondary-btn">
+                        Lap
+                    </button>
+                    <button id="resetStopwatch" class="secondary-btn">
+                        Reset
+                    </button>
+                </div>
+                <div class="lap-list" id="lapList"></div>
+            </section>
             <div class="card">
                 <h3>🔔 Alarm</h3>
                 <p>Coming Soon</p>
@@ -78,6 +97,7 @@
         </section>
     </main>
     <script src="js/clock.js"></script>
+    <script src="js/stopwatch.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/app.js"></script>
 </body>

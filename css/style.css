@@ -188,3 +188,98 @@ body{
     color:var(--text-muted);
     font-size:1rem;
 }
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.status-badge{
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(59,130,246,.15);
+    color:var(--accent-light);
+    font-size:.8rem;
+    font-weight:600;
+}
+
+.stopwatch-display{
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:2px;
+    margin:25px 0;
+}
+
+.stopwatch-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+
+.primary-btn,
+.secondary-btn{
+    border:none;
+    cursor:pointer;
+    border-radius:12px;
+    padding:12px 22px;
+    font-size:.95rem;
+    font-weight:600;
+    transition:.25s;
+}
+
+.primary-btn{
+    background:var(--accent);
+    color:white;
+}
+
+.primary-btn:hover{
+    transform:translateY(-2px);
+    background:#2563eb;
+}
+
+.secondary-btn{
+    background:rgba(255,255,255,.08);
+    color:white;
+}
+
+.secondary-btn:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.lap-list{
+    margin-top:25px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    max-height:180px;
+    overflow-y:auto;
+}
+
+.lap-item{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 14px;
+    border-radius:10px;
+    background:rgba(255,255,255,.05);
+    color:var(--text-muted);
+    font-size:.9rem;
+}
+
+.status-ready{
+    background:rgba(59,130,246,.15);
+    color:#60a5fa;
+}
+
+.status-running{
+    background:rgba(34,197,94,.15);
+    color:#4ade80;
+}
+
+.status-paused{
+    background:rgba(249,115,22,.15);
+    color:#fb923c;
+}

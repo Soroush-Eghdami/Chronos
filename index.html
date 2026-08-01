@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/clock.css">
+    <link rel="stylesheet" href="css/weather.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -59,10 +60,47 @@
             </div>
         </section>
         <section class="info-grid">
-            <div class="card">
-                <h3>🌤 Weather</h3>
-                <p>Coming Soon</p>
-            </div>
+            <section class="card weather-card">
+                <div class="card-header">
+                    <h3>🌤 Weather</h3>
+                    <span class="status-badge" id="weatherStatus">
+                        Loading
+                    </span>   
+                </div>
+                <div class="weather-main">
+                    <div id="weatherIcon" class="weather-icon">
+                        ⛅
+                    </div>
+                    <div>
+                        <div id="temperature" class="temperature">
+                            --
+                        </div>
+                        <div id="weatherDescription" class="weather-description">
+                            Loading...
+                        </div>
+                    </div>
+                </div>
+                <div class="weather-details">
+                    <div>
+                        <span>Feels Like</span>
+                        <strong id="feelsLike">
+                            --
+                        </strong>
+                    </div>
+                    <div>
+                        <span>Humidity</span>
+                        <strong id="humidity">
+                            --
+                        </strong>
+                    </div>
+                    <div>
+                        <span>Wind</span>
+                        <strong id="windSpeed">
+                            --
+                        </strong>
+                    </div>
+                </div>
+            </section>
             <section class="card world-clock-card">
                 <div class="card-header">
                     <h3>🌍 World Clock</h3>
@@ -118,9 +156,12 @@
             </div>
         </section>
     </main>
+    <script src="config/config.js"></script>
+
     <script src="js/clock.js"></script>
     <script src="js/stopwatch.js"></script>
     <script src="js/worldClock.js"></script>
+    <script src="js/weather.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/app.js"></script>
 </body>

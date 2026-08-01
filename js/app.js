@@ -27,6 +27,7 @@ function loop() {
     updateAnalogClock(now);
     updateDigitalClock(now);
     updateDate(now);
+    updateWorldClocks(now);
     requestAnimationFrame(loop);
 }
 

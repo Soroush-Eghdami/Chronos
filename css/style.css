@@ -283,3 +283,27 @@ body{
     background:rgba(249,115,22,.15);
     color:#fb923c;
 }
+
+.world-clock-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.world-clock-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-variant-numeric:tabular-nums;
+}
+
+.world-clock-item:last-child{
+    border-bottom:none;
+}
+
+.world-clock-item span:last-child{
+    font-weight:600;
+    color:var(--accent-light);
+}

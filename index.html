@@ -63,10 +63,32 @@
                 <h3>🌤 Weather</h3>
                 <p>Coming Soon</p>
             </div>
-            <div class="card">
-                <h3>🌍 World Clock</h3>
-                <p>Coming Soon</p>
-            </div>
+            <section class="card world-clock-card">
+                <div class="card-header">
+                    <h3>🌍 World Clock</h3>
+                    <span class="status-badge status-ready">
+                        Live
+                    </span>
+                </div>
+                <div class="world-clock-list">
+                    <div class="world-clock-item">
+                        <span>🇮🇷 Tehran</span>
+                        <span id="tehranTime">--:--:--</span>
+                    </div>
+                    <div class="world-clock-item">
+                        <span>🇬🇧 London</span>
+                        <span id="londonTime">--:--:--</span>
+                    </div>
+                    <div class="world-clock-item">
+                        <span>🇺🇸 New York</span>
+                        <span id="newYorkTime">--:--:--</span>
+                    </div>
+                    <div class="world-clock-item">
+                        <span>🇯🇵 Tokyo</span>
+                        <span id="tokyoTime">--:--:--</span>
+                    </div>
+                </div>
+            </section>
             <section class="card stopwatch-card">
                 <div class="card-header">
                     <h3>⏱ Stopwatch</h3>
@@ -98,6 +120,7 @@
     </main>
     <script src="js/clock.js"></script>
     <script src="js/stopwatch.js"></script>
+    <script src="js/worldClock.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/app.js"></script>
 </body>

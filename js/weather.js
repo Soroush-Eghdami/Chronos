@@ -6,7 +6,11 @@ const feelsLike = document.getElementById("feelsLike");
 const humidity = document.getElementById("humidity");
 const windSpeed = document.getElementById("windSpeed");
 const WEATHER_API_KEY = CONFIG.OPENWEATHER_API_KEY;
-const CITY = "Berlin";
+const weatherCity =
+    document.getElementById("weatherCity");
+const CITY = "Tehran";
+const weatherUpdated =
+    document.getElementById("weatherUpdated");
 
 const WEATHER_URL =
 `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${WEATHER_API_KEY}&units=metric`;
@@ -34,16 +38,25 @@ async function loadWeather(){
 function updateWeather(data){
     temperature.textContent =
         `${Math.round(data.main.temp)}°C`;
+
     weatherDescription.textContent =
         data.weather[0].description;
+
     feelsLike.textContent =
         `${Math.round(data.main.feels_like)}°C`;
+
     humidity.textContent =
         `${data.main.humidity}%`;
+
     windSpeed.textContent =
         `${Math.round(data.wind.speed * 3.6)} km/h`;
+
     weatherIcon.textContent =
         getWeatherIcon(data.weather[0].main);
+
+    weatherCity.textContent =
+        `📍 ${data.name}`;
+    
 }
 
 function getWeatherIcon(condition){

@@ -1,3 +1,22 @@
+.weather-icon img{
+    width:90px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
 .weather-main{
     display:flex;
     align-items:center;
@@ -48,3 +67,17 @@
     color:var(--text-primary);
     font-size:1rem;
 }
+
+.weather-city{
+    font-size:.95rem;
+    color:var(--accent-light);
+    margin-bottom:8px;
+}
+
+.weather-updated{
+    margin-top:20px;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:.8rem;
+}
+

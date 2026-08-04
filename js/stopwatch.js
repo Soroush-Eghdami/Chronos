@@ -44,15 +44,15 @@ function updateStatus() {
     switch (stopwatchState) {
         case StopwatchState.IDLE:
             stopwatchStatus.textContent = "Ready";
-            stopwatchStatus.classList.add("status-ready");
+            stopwatchStatus.classList.add("status-info");
             break;
         case StopwatchState.RUNNING:
             stopwatchStatus.textContent = "Running";
-            stopwatchStatus.classList.add("status-running");
+            stopwatchStatus.classList.add("status-success");
             break;
         case StopwatchState.PAUSED:
             stopwatchStatus.textContent = "Paused";
-            stopwatchStatus.classList.add("status-paused");
+            stopwatchStatus.classList.add("status-warning");
             break;
     }
 }

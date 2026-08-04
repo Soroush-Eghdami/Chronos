@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/weather.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pomodoro.css">
 </head>
 
 <body>
@@ -158,10 +159,44 @@
                 </div>
                 <div class="lap-list" id="lapList"></div>
             </section>
-            <div class="card">
-                <h3>🔔 Alarm</h3>
-                <p>Coming Soon</p>
-            </div>
+            <section class="card pomodoro-card">
+                <div class="dashboard-card-header">
+                    <h3>🍅 Pomodoro</h3>
+                    <span class="status-badge status-info" id="pomodoroStatus">
+                        Ready
+                    </span>
+                </div>
+                <div class="pomodoro-body">
+                    <div class="pomodoro-timer" id="pomodoroTimer">
+                        25:00
+                    </div>
+                    <div class="pomodoro-session" id="pomodoroSession">
+                        Focus Session
+                    </div>
+                </div>
+                <div class="pomodoro-controls">
+                    <button id="pomodoroStart" class="primary-btn">
+                        Start
+                    </button>
+                    <button id="pomodoroSkip" class="secondary-btn">
+                        Skip
+                    </button>
+                    <button id="pomodoroReset" class="secondary-btn">
+                        Reset
+                    </button>
+                </div>
+                <div class="pomodoro-progress">
+                    <div class="pomodoro-tomatoes" id="pomodoroTomatoes">
+                        ○ ○ ○ ○
+                    </div>
+                    <div class="pomodoro-completed">
+                        Completed Today:
+                        <span id="completedSessions">
+                            0
+                        </span>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
     <script src="config/config.js"></script>
@@ -170,6 +205,7 @@
     <script src="js/stopwatch.js"></script>
     <script src="js/worldClock.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/pomodoro.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/app.js"></script>
 </body>

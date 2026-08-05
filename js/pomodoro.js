@@ -6,7 +6,6 @@ const pomodoroSkip = document.getElementById("pomodoroSkip");
 const pomodoroReset = document.getElementById("pomodoroReset");
 const completedSessions = document.getElementById("completedSessions");
 const pomodoroTomatoes = document.getElementById("pomodoroTomatoes");
-
 const PomodoroState = {
     READY: "ready",
     RUNNING: "running",
@@ -29,16 +28,17 @@ let pomodoroState = PomodoroState.READY;
 let currentSession = SessionType.FOCUS;
 let completedFocusSessions = 0;
 let remainingSeconds = DURATIONS.FOCUS;
-let pomodoroIntervalId = null;
+let startTimestamp = 0;
+let pomodoroAnimationId = null;
 
-function formatTime(seconds){
+function formatPomodoroTime(seconds){
     const minutes = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${String(minutes).padStart(2,"0")}:${String(secs).padStart(2,"0")}`;
 }
 
-function updateDisplay(){
-    pomodoroTimer.textContent = formatTime(remainingSeconds);
+function updatePomodoroDisplay(){
+    pomodoroTimer.textContent = formatPomodoroTime(remainingSeconds);
     switch(currentSession){
         case SessionType.FOCUS:
             pomodoroSession.textContent = "Focus Session";
@@ -54,7 +54,7 @@ function updateDisplay(){
     updateTomatoes();
 }
 
-function updateStatus(){
+function updatePomodoroStatus(){
     pomodoroStatus.className = "status-badge";
     switch(pomodoroState){
         case PomodoroState.READY:
@@ -72,7 +72,7 @@ function updateStatus(){
     }
 }
 
-function updateButtons(){
+function updatePomodoroButtons(){
     switch(pomodoroState){
         case PomodoroState.READY:
             pomodoroStart.textContent = "Start";
@@ -112,53 +112,57 @@ function nextSession(){
         remainingSeconds = DURATIONS.FOCUS;
     }
     pomodoroState = PomodoroState.READY;
-    updateDisplay();
-    updateButtons();
-    updateStatus();
+    updatePomodoroDisplay();
+    updatePomodoroButtons();
+    updatePomodoroStatus();
+}
+
+function pomodoroLoop(){
+    const elapsed = Math.floor((performance.now() - startTimestamp) / 1000);
+    const secondsLeft = remainingSeconds - elapsed;
+    if(secondsLeft <= 0){
+        cancelAnimationFrame(pomodoroAnimationId);
+        pomodoroAnimationId = null;
+        nextSession();
+        return;
+    }
+    pomodoroTimer.textContent = formatPomodoroTime(secondsLeft);
+    pomodoroAnimationId = requestAnimationFrame(pomodoroLoop);
 }
 
 function startPomodoro(){
-    if(pomodoroIntervalId) clearInterval(pomodoroIntervalId);
+    startTimestamp = performance.now();
     pomodoroState = PomodoroState.RUNNING;
-    updateButtons();
-    updateStatus();
-    pomodoroIntervalId = setInterval(() => {
-        remainingSeconds--;
-        if(remainingSeconds <= 0){
-            clearInterval(pomodoroIntervalId);
-            pomodoroIntervalId = null;
-            remainingSeconds = 0;
-            updateDisplay();
-            nextSession();
-        }
-        else{
-            updateDisplay();
-        }
-    }, 1000);
+    updatePomodoroButtons();
+    updatePomodoroStatus();
+    pomodoroAnimationId = requestAnimationFrame(pomodoroLoop);
 }
 
 function pausePomodoro(){
-    clearInterval(pomodoroIntervalId);
-    pomodoroIntervalId = null;
+    cancelAnimationFrame(pomodoroAnimationId);
+    pomodoroAnimationId = null;
+    const elapsed = Math.floor((performance.now() - startTimestamp) / 1000);
+    remainingSeconds -= elapsed;
     pomodoroState = PomodoroState.PAUSED;
-    updateButtons();
-    updateStatus();
+    updatePomodoroButtons();
+    updatePomodoroStatus();
 }
 
 function resetPomodoro(){
-    clearInterval(pomodoroIntervalId);
-    pomodoroIntervalId = null;
+    cancelAnimationFrame(pomodoroAnimationId);
+    pomodoroAnimationId = null;
     currentSession = SessionType.FOCUS;
     remainingSeconds = DURATIONS.FOCUS;
+    completedFocusSessions = 0;
     pomodoroState = PomodoroState.READY;
-    updateDisplay();
-    updateButtons();
-    updateStatus();
+    updatePomodoroDisplay();
+    updatePomodoroButtons();
+    updatePomodoroStatus();
 }
 
 function skipPomodoro(){
-    clearInterval(pomodoroIntervalId);
-    pomodoroIntervalId = null;
+    cancelAnimationFrame(pomodoroAnimationId);
+    pomodoroAnimationId = null;
     nextSession();
 }
 
@@ -178,6 +182,6 @@ pomodoroStart.addEventListener("click", () => {
 
 pomodoroReset.addEventListener("click", resetPomodoro);
 pomodoroSkip.addEventListener("click", skipPomodoro);
-updateDisplay();
-updateButtons();
-updateStatus();
+updatePomodoroDisplay();
+updatePomodoroButtons();
+updatePomodoroStatus();

@@ -1,0 +1,23 @@
+{
+  "name": "html_clock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soroush-Eghdami/chronos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soroush-Eghdami/chronos/issues"
+  },
+  "homepage": "https://github.com/Soroush-Eghdami/chronos#readme",
+  "description": "",
+  "devDependencies": {
+    "prettier": "3.9.6"
+  }
+}

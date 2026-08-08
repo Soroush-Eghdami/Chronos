@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/pomodoro.css" />
+    <link rel="stylesheet" href="css/todo.css" />
   </head>
 
   <body>
@@ -109,20 +110,25 @@
             </div>
           </div>
         </section>
-        <section class="card stopwatch-card">
+        <section class="card todo-card">
           <div class="card-header">
-            <h3>⏱ Stopwatch</h3>
-            <span class="status-badge" id="stopwatchStatus"> Ready </span>
+            <h3>✅ To-Do</h3>
+            <span class="status-badge status-info" id="todoStatus">
+              0 left
+            </span>
           </div>
-          <div class="stopwatch-display" id="stopwatchDisplay">
-            00:00:00.000
-          </div>
-          <div class="stopwatch-buttons">
-            <button id="startStopwatch" class="primary-btn">Start</button>
-            <button id="lapStopwatch" class="secondary-btn">Lap</button>
-            <button id="resetStopwatch" class="secondary-btn">Reset</button>
-          </div>
-          <div class="lap-list" id="lapList"></div>
+          <form class="todo-form" id="todoForm">
+            <input
+              type="text"
+              id="todoInput"
+              class="todo-input"
+              placeholder="Add a task..."
+              autocomplete="off"
+              maxlength="80"
+            />
+            <button type="submit" class="primary-btn todo-add-btn">+</button>
+          </form>
+          <ul class="todo-list" id="todoList"></ul>
         </section>
         <section class="card pomodoro-card">
           <div class="dashboard-card-header">
@@ -155,7 +161,7 @@
     <script src="config/config.js"></script>
 
     <script src="js/clock.js"></script>
-    <script src="js/stopwatch.js"></script>
+    <script src="js/todo.js"></script>
     <script src="js/worldClock.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/pomodoro.js"></script>

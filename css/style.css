@@ -199,21 +199,6 @@ body {
   font-weight: 600;
 }
 
-.stopwatch-display {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 2px;
-  margin: 25px 0;
-}
-
-.stopwatch-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-}
-
 .primary-btn,
 .secondary-btn {
   border: none;
@@ -242,25 +227,6 @@ body {
 
 .secondary-btn:hover {
   background: rgba(255, 255, 255, 0.15);
-}
-
-.lap-list {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 180px;
-  overflow-y: auto;
-}
-
-.lap-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
 .status-info {

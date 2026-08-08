@@ -32,20 +32,24 @@ body {
 }
 
 body.light {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #e2e8f0;
-  --glass: rgba(15, 23, 42, 0.04);
-  --glass-border: rgba(15, 23, 42, 0.09);
+  --bg-primary: #eef2ff;
+  --bg-secondary: #e0e7ff;
+  --glass: rgba(59, 130, 246, 0.07);
+  --glass-border: rgba(59, 130, 246, 0.32);
   --text: #0f172a;
   --text-muted: #475569;
-  --btn-secondary-bg: rgba(15, 23, 42, 0.06);
-  --btn-secondary-bg-hover: rgba(15, 23, 42, 0.11);
-  --shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-  background: linear-gradient(135deg, #f8fafc, #eef2f7, #e2e8f0);
+  --btn-secondary-bg: rgba(59, 130, 246, 0.08);
+  --btn-secondary-bg-hover: rgba(59, 130, 246, 0.14);
+  --shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+  background: linear-gradient(135deg, #eef2ff, #f0f9ff, #fdf4ff);
 }
 
 body.light .background-glow {
-  opacity: 0.12;
+  opacity: 0.35;
+}
+
+body.light .glow-2 {
+  background: #a855f7;
 }
 
 .background-glow {
@@ -101,6 +105,11 @@ body.light .background-glow {
   background: var(--glass);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
   transition: 0.3s;
 }
 

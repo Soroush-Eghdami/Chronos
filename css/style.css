@@ -7,6 +7,8 @@
   --accent-light: #60a5fa;
   --text: #f8fafc;
   --text-muted: #94a3b8;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.08);
+  --btn-secondary-bg-hover: rgba(255, 255, 255, 0.15);
   --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   --radius: 24px;
 }
@@ -27,6 +29,23 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+
+body.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #e2e8f0;
+  --glass: rgba(15, 23, 42, 0.04);
+  --glass-border: rgba(15, 23, 42, 0.09);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --btn-secondary-bg: rgba(15, 23, 42, 0.06);
+  --btn-secondary-bg-hover: rgba(15, 23, 42, 0.11);
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  background: linear-gradient(135deg, #f8fafc, #eef2f7, #e2e8f0);
+}
+
+body.light .background-glow {
+  opacity: 0.12;
 }
 
 .background-glow {
@@ -78,7 +97,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   font-size: 22px;
-  color: white;
+  color: var(--text);
   background: var(--glass);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
@@ -155,7 +174,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111827;
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -221,12 +240,12 @@ body {
 }
 
 .secondary-btn {
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  background: var(--btn-secondary-bg);
+  color: var(--text);
 }
 
 .secondary-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--btn-secondary-bg-hover);
 }
 
 .status-info {
@@ -252,23 +271,52 @@ body {
 .world-clock-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .world-clock-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
   font-variant-numeric: tabular-nums;
+  transition: 0.2s;
 }
 
-.world-clock-item:last-child {
-  border-bottom: none;
+.world-clock-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(3px);
 }
 
-.world-clock-item span:last-child {
+.world-clock-place {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.world-clock-flag {
+  font-size: 1.1rem;
+}
+
+.world-clock-city {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.world-clock-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.world-clock-period {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.world-clock-time {
   font-weight: 600;
   color: var(--accent-light);
 }

@@ -11,7 +11,7 @@
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: 2px;
-  color: var(--text-primary);
+  color: var(--text);
   line-height: 1;
 }
 
@@ -40,15 +40,26 @@
   gap: 14px;
 }
 
-.pomodoro-tomatoes {
-  font-size: 2rem;
-  letter-spacing: 8px;
-  user-select: none;
-  transition: 0.3s;
+.pomodoro-progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 }
 
-.pomodoro-tomatoes:hover {
-  transform: scale(1.05);
+.pomodoro-progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  transition:
+    width 0.3s linear,
+    background 0.3s ease;
+}
+
+.pomodoro-progress-fill.break {
+  background: linear-gradient(90deg, #16a34a, #4ade80);
 }
 
 .pomodoro-completed {
